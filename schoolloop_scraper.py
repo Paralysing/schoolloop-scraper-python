@@ -3,12 +3,12 @@ import requests
 import re
 
 class SchoolLoopScraper:
-    def __init__(self, schoolloop_domain='montavista.schoolloop.com', username, password):
+    def __init__(self, username, password, schoolloop_domain='montavista.schoolloop.com'):
         self.schoolloop_domain = schoolloop_domain
         self.username = username
         self.password = password
 
-    def extract_schoolloop_info():
+    def extract_schoolloop_info(self):
         grade_data = {}
         assignment_data = {}
         schoolloop_session = requests.Session()
@@ -21,7 +21,7 @@ class SchoolLoopScraper:
         }
         payload = {
             'login_name': self.username,
-            'password': password,
+            'password': self.password,
             'event_override': 'login',
             'form_data_id': form_data_id
         }
